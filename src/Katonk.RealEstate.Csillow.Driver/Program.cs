@@ -33,6 +33,9 @@ namespace Katonk.RealEstate.Driver
                 {
                     Console.WriteLine(deepSearchResult.FinishedSqFt);
                 }
+
+                UpdatedPropertyDetailsResponse updatedPropertyDetails = await csillow.GetUpdatedPropertyDetails(property.ZpId);
+                Console.WriteLine(updatedPropertyDetails.PageViewCount.CurrentMonth);
             }
         }
     }

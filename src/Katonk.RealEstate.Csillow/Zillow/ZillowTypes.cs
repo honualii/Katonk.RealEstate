@@ -115,6 +115,44 @@ namespace Katonk.RealEstate.Zillow
         }
     }
 
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd")]
+    [System.Xml.Serialization.XmlRootAttribute(ElementName = "updatedPropertyDetails", Namespace = "http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd", IsNullable = false)]
+    public partial class UpdatedPropertyDetailsResults : Results
+    {
+        private UpdatedPropertyDetailsRequest _requestField;
+
+        private UpdatedPropertyDetailsResponse _responseField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "request", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public UpdatedPropertyDetailsRequest Request
+        {
+            get
+            {
+                return this._requestField;
+            }
+            set
+            {
+                this._requestField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "response", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public UpdatedPropertyDetailsResponse Response
+        {
+            get
+            {
+                return this._responseField;
+            }
+            set
+            {
+                this._responseField = value;
+            }
+        }
+    }
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
@@ -160,6 +198,28 @@ namespace Katonk.RealEstate.Zillow
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute("request", AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/Zestimate.xsd")]
     public partial class ZestimateRequest
+    {
+
+        private string _zpIdField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "zpid", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ZpId
+        {
+            get
+            {
+                return this._zpIdField;
+            }
+            set
+            {
+                this._zpIdField = value;
+            }
+        }
+    }
+
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute("request", AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd")]
+    public partial class UpdatedPropertyDetailsRequest
     {
 
         private string _zpIdField;
@@ -1461,6 +1521,53 @@ namespace Katonk.RealEstate.Zillow
             {
                 this._resultsField = value;
             }
+        }
+    }
+
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute("updatedPropertyDetailsResponse", AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd")]
+    public partial class UpdatedPropertyDetailsResponse
+    {
+        private SimpleProperty[] _resultsField;
+
+        [System.Xml.Serialization.XmlElementAttribute("zpid", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public uint ZpId
+        {
+            get;
+            set;
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("pageViewCount", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public PageViewCount PageViewCount
+        {
+            get;
+            set;
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("address", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public Address Address
+        {
+            get;
+            set;
+        }
+    }
+
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute("pageViewCount", AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd")]
+    public partial class PageViewCount
+    {
+        [System.Xml.Serialization.XmlElementAttribute("currentMonth", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public uint CurrentMonth
+        {
+            get;
+            set;
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("total", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public uint Total
+        {
+            get;
+            set;
         }
     }
 }

@@ -1,0 +1,124 @@
+﻿<xsd:schema
+    attributeFormDefault="unqualified"
+    elementFormDefault="unqualified"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ZillowTypes="http://www.zillow.com/static/xsd/ZillowTypes.xsd"
+    targetNamespace="http://www.zillow.com/static/xsd/UpdatedPropertyDetails.xsd">
+
+  <xsd:import
+      namespace="http://www.zillow.com/static/xsd/ZillowTypes.xsd"
+      schemaLocation="http://www.zillowstatic.com/vstatic/272e7d3/static/xsd/ZillowTypes.xsd"  />
+
+  <xsd:element name="updatedPropertyDetails">
+    <xsd:complexType>
+      <xsd:sequence>
+
+        <xsd:element name="request">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="zpid" type="xsd:unsignedInt"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="message" type="ZillowTypes:Message"/>
+
+        <xsd:element minOccurs="0" name="response">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="zpid" type="xsd:unsignedInt"/>
+
+              <xsd:element name="pageViewCount">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="currentMonth" type="xsd:unsignedInt"/>
+                    <xsd:element name="total" type="xsd:unsignedInt"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="address" type="ZillowTypes:Address"/>
+
+              <xsd:element name="listing">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="status" type="xsd:string"/>
+                    <xsd:element name="type" type="xsd:string"/>
+                    <xsd:element name="lastUpdatedDate" type="xsd:date"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="price" type="xsd:unsignedInt"/>
+
+              <xsd:element name="links">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="homeDetails" type="xsd:string"/>
+                    <xsd:element name="photoGallery" type="xsd:string"/>
+                    <xsd:element name="homeInfo" type="xsd:string"/>
+                    <xsd:element name="ownersEstimate" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="images">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="count" type="xsd:unsignedInt"/>
+                    <xsd:element name="lings">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="url" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="editedFacts">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element minOccurs="0" name="useCode" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="bedrooms" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="bathrooms" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="finishedSqFt" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="lotSizeSqFt" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="yearBuilt" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="yearUpdated" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="numFloors" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="numRooms" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="basement" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="roof" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="view" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="parkingType" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="coveredParkingSpaces" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="heatingSources" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="heatingSystem" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="coolingSystem" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="appliances" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="floorCovering" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="rooms" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="architecture" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="floorNumber" type="xsd:unsignedInt"/>
+                    <xsd:element minOccurs="0" name="numUnits" type="xsd:unsignedInt"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="homeDescription" type="xsd:string"/>
+              <xsd:element name="whatOwnerLoves" type="xsd:string"/>
+              <xsd:element name="neighborhood" type="xsd:string"/>
+              <xsd:element name="schoolDistrict" type="xsd:string"/>
+              <xsd:element name="elementarySchool" type="xsd:string"/>
+              <xsd:element name="middleSchool" type="xsd:string"/>
+              <xsd:element name="highSchool" type="xsd:string"/>
+
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -58,6 +58,16 @@ namespace Katonk.RealEstate
             return results.DetailedProperty;
         }
 
+        public async Task<UpdatedPropertyDetailsResponse> GetUpdatedPropertyDetails(uint zpId)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id={0}&zpid={1}";
+            string url = String.Format(urlFormat, this.ZwsId, zpId);
+
+            UpdatedPropertyDetailsResults results = await GetResultsAsync<UpdatedPropertyDetailsResults>(new Uri(url));
+
+            return results.Response;
+        }
+
         protected async Task<T> GetResultsAsync<T>(Uri address) where T : Results
         {
             Task<T> task;
