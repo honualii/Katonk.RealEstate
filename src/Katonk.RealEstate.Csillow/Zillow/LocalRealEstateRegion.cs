@@ -48,7 +48,7 @@ namespace Katonk.RealEstate.Zillow
         }
 
         [System.Xml.Serialization.XmlAttributeAttribute("id")]
-        public uint Id
+        public int Id
         {
             get;
             set;

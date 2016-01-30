@@ -16,7 +16,7 @@ namespace Katonk.RealEstate.Zillow
     public partial class Property
     {
         [System.Xml.Serialization.XmlElementAttribute("zpid", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public uint ZpId
+        public int ZpId
         {
             get;
             set;
