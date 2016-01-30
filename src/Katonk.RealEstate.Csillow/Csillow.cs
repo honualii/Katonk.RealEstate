@@ -1,4 +1,5 @@
 ﻿using Katonk.RealEstate.Zillow;
+using Katonk.RealEstate.Zillow.CompsQuery;
 using Katonk.RealEstate.Zillow.SearchResultsQuery;
 using Katonk.RealEstate.Zillow.UpdatedPropertyDetailsQuery;
 using Katonk.RealEstate.Zillow.ZestimateQuery;
@@ -61,7 +62,7 @@ namespace Katonk.RealEstate
             return results.DetailedProperty;
         }
 
-        public async Task<UpdatedPropertyDetailsResponse> GetUpdatedPropertyDetails(uint zpId)
+        public async Task<UpdatedPropertyDetailsResponse> GetUpdatedPropertyDetailsAsync(uint zpId)
         {
             string urlFormat = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id={0}&zpid={1}";
             string url = String.Format(urlFormat, this.ZwsId, zpId);
@@ -69,6 +70,26 @@ namespace Katonk.RealEstate
             UpdatedPropertyDetailsResults results = await GetResultsAsync<UpdatedPropertyDetailsResults>(new Uri(url));
 
             return results.Response;
+        }
+
+        public async Task<Properties> GetCompsAsync(uint zpId, int count)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetComps.htm?zws-id={0}&zpid={1}&count={2}";
+            string url = String.Format(urlFormat, this.ZwsId, zpId, count);
+
+            CompsResults results = await GetResultsAsync<CompsResults>(new Uri(url));
+
+            return results.Response.Properties;
+        }
+
+        public async Task<Properties> GetDeepCompsAsync(uint zpId, int count, bool returnRentZestimate = false)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetDeepComps.htm?zws-id={0}&zpid={1}&count={2}";
+            string url = String.Format(urlFormat, this.ZwsId, zpId, count);
+
+            CompsResults results = await GetResultsAsync<CompsResults>(new Uri(url));
+
+            return results.Response.Properties;
         }
 
         protected async Task<T> GetResultsAsync<T>(Uri address) where T : Results

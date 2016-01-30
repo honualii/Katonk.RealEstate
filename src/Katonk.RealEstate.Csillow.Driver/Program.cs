@@ -1,4 +1,5 @@
 ﻿using Katonk.RealEstate.Zillow;
+using Katonk.RealEstate.Zillow.CompsQuery;
 using Katonk.RealEstate.Zillow.UpdatedPropertyDetailsQuery;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,14 @@ namespace Katonk.RealEstate.Driver
                     Console.WriteLine(deepSearchResult.FinishedSqFt);
                 }
 
-                UpdatedPropertyDetailsResponse updatedPropertyDetails = await csillow.GetUpdatedPropertyDetails(property.ZpId);
+                UpdatedPropertyDetailsResponse updatedPropertyDetails = await csillow.GetUpdatedPropertyDetailsAsync(property.ZpId);
                 Console.WriteLine(updatedPropertyDetails.PageViewCount.CurrentMonth);
+
+                Properties comps = await csillow.GetCompsAsync(property.ZpId, 5);
+                Console.WriteLine(comps.Comps[0].Address.Street);
+
+                Properties deepComps = await csillow.GetDeepCompsAsync(property.ZpId, 5);
+                Console.WriteLine(deepComps.Comps[0].Address.Street);
             }
         }
     }

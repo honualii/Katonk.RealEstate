@@ -43,6 +43,10 @@
     <Compile Include="Csillow.cs" />
     <Compile Include="CsillowException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zillow\CompsQuery\CompsRequest.cs" />
+    <Compile Include="Zillow\CompsQuery\Properties.cs" />
+    <Compile Include="Zillow\CompsQuery\CompsResults.cs" />
+    <Compile Include="Zillow\CompsQuery\CompsResponse.cs" />
     <Compile Include="Zillow\UpdatedPropertyDetailsQuery\EditedFacts.cs" />
     <Compile Include="Zillow\UpdatedPropertyDetailsQuery\Links.cs" />
     <Compile Include="Zillow\UpdatedPropertyDetailsQuery\Images.cs" />
@@ -76,6 +80,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Zillow\Xsd\Comps.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Zillow\Xsd\SearchResults.xsd">
       <SubType>Designer</SubType>
     </None>
