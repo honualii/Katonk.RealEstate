@@ -87,37 +87,9 @@ namespace Katonk.RealEstate
                         searchResults = serializer.Deserialize(stream) as T;
                     }
 
-                    switch (searchResults.Message.Code)
+                    if (searchResults.Message.Code != 0)
                     {
-                        case "0":
-                            // Request successfully processed
-                            break;
-                        case "1":
-                            throw new CsillowException("Service error-there was a server-side error while processing the request", "Check to see if your url is properly formed: delimiters, character cases, etc.");
-                        case "2":
-                            throw new CsillowException("The specified ZWSID parameter was invalid or not specified in the request", "Check if you have provided a ZWSID in your API call. If yes, check if the ZWSID is keyed in correctly. If it still doesn't work, contact Zillow to get help on fixing your ZWSID.");
-                        case "3":
-                            throw new CsillowException("Web services are currently unavailable", "The Zillow Web Service is currently not available. Please come back later and try again.");
-                        case "4":
-                            throw new CsillowException("The API call is currently unavailable", "The Zillow Web Service is currently not available. Please come back later and try again.");
-                        case "500":
-                            throw new CsillowException("Invalid or missing address parameter", "Check if the input address matches the format specified in the input parameters table. When inputting a city name, include the state too. A city name alone will not result in a valid address.");
-                        case "501":
-                            throw new CsillowException("Invalid or missing citystatezip parameter", "Check if the input address matches the format specified in the input parameters table. When inputting a city name, include the state too. A city name alone will not result in a valid address.");
-                        case "502":
-                            throw new CsillowException("No results found", "Sorry, the address you provided is not found in Zillow's property database.");
-                        case "503":
-                            throw new CsillowException("Failed to resolve city, state or ZIP code", "Please check to see if the city/state you entered is valid. If you provided a ZIP code, check to see if it is valid.");
-                        case "504":
-                            throw new CsillowException("No coverage for specified area", "The specified area is not covered by the Zillow property database. To see our property coverage tables, click here.");
-                        case "505":
-                            throw new CsillowException("Timeout", "Your request timed out. The server could be busy or unavailable. Try again later.");
-                        case "506":
-                            throw new CsillowException("Address string too long", "If address is valid, try using abbreviations.");
-                        case "507":
-                            throw new CsillowException("No exact match found.", "Verify that the given address is correct.");
-                        default:
-                            throw new CsillowException("Unknown message code.", "");
+                        throw CsillowException.FromCode(searchResults.Message.Code);
                     }
 
                     return searchResults;

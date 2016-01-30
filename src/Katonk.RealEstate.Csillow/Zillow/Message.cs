@@ -24,8 +24,8 @@ namespace Katonk.RealEstate.Zillow
             set;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("code", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "integer")]
-        public string Code
+        [System.Xml.Serialization.XmlElementAttribute("code", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int Code
         {
             get;
             set;
