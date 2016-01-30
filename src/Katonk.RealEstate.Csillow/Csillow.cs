@@ -32,19 +32,11 @@ namespace Katonk.RealEstate
             private set;
         }
 
+        #region Home Valuation API hhttp://www.zillow.com/howto/api/HomeValuationAPIOverview.htm
+
         public async Task<SimpleProperty[]> GetSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
         {
             string urlFormat = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
-            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
-
-            SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
-
-            return results.Response.Properties;
-        }
-
-        public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
-        {
-            string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
             string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
 
             SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
@@ -62,22 +54,26 @@ namespace Katonk.RealEstate
             return results.DetailedProperty;
         }
 
-        public async Task<UpdatedPropertyDetailsResponse> GetUpdatedPropertyDetailsAsync(uint zpId)
-        {
-            string urlFormat = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id={0}&zpid={1}";
-            string url = String.Format(urlFormat, this.ZwsId, zpId);
-
-            UpdatedPropertyDetailsResults results = await GetResultsAsync<UpdatedPropertyDetailsResults>(new Uri(url));
-
-            return results.Response;
-        }
-
         public async Task<Properties> GetCompsAsync(uint zpId, int count)
         {
             string urlFormat = "http://www.zillow.com/webservice/GetComps.htm?zws-id={0}&zpid={1}&count={2}";
             string url = String.Format(urlFormat, this.ZwsId, zpId, count);
 
             CompsResults results = await GetResultsAsync<CompsResults>(new Uri(url));
+
+            return results.Response.Properties;
+        }
+
+        #endregion
+
+        #region Property Details API http://www.zillow.com/howto/api/PropertyDetailsAPIOverview.htm
+
+        public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
+            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
+
+            SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
 
             return results.Response.Properties;
         }
@@ -91,6 +87,18 @@ namespace Katonk.RealEstate
 
             return results.Response.Properties;
         }
+
+        public async Task<UpdatedPropertyDetailsResponse> GetUpdatedPropertyDetailsAsync(uint zpId)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id={0}&zpid={1}";
+            string url = String.Format(urlFormat, this.ZwsId, zpId);
+
+            UpdatedPropertyDetailsResults results = await GetResultsAsync<UpdatedPropertyDetailsResults>(new Uri(url));
+
+            return results.Response;
+        }
+
+        #endregion
 
         protected async Task<T> GetResultsAsync<T>(Uri address) where T : Results
         {
