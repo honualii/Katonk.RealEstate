@@ -35,7 +35,7 @@ namespace Katonk.RealEstate
 
             SearchResults results = await GetResultsAsync<SearchResults>(new Uri(url));
 
-            return results.Response.Results;
+            return results.Response.Properties;
         }
 
         public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
@@ -45,7 +45,7 @@ namespace Katonk.RealEstate
 
             SearchResults results = await GetResultsAsync<SearchResults>(new Uri(url));
 
-            return results.Response.Results;
+            return results.Response.Properties;
         }
 
         public async Task<DetailedProperty> GetZestimateAsync(uint zpId)

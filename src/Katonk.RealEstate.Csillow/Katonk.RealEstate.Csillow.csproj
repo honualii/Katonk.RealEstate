@@ -43,7 +43,32 @@
     <Compile Include="Csillow.cs" />
     <Compile Include="CsillowException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Zillow\ZillowTypes.cs" />
+    <Compile Include="Zillow\PageViewCount.cs" />
+    <Compile Include="Zillow\UpdatedPropertyDetailsRequest.cs" />
+    <Compile Include="Zillow\UpdatedPropertyDetailsResponse.cs" />
+    <Compile Include="Zillow\UpdatedPropertyDetailsResults.cs" />
+    <Compile Include="Zillow\ZestimateRequest.cs" />
+    <Compile Include="Zillow\ZestimateResults.cs" />
+    <Compile Include="Zillow\Address.cs" />
+    <Compile Include="Zillow\Amount.cs" />
+    <Compile Include="Zillow\AmountOptional.cs" />
+    <Compile Include="Zillow\ComparableProperty.cs" />
+    <Compile Include="Zillow\Currency.cs" />
+    <Compile Include="Zillow\DeprecatedType.cs" />
+    <Compile Include="Zillow\DetailedProperty.cs" />
+    <Compile Include="Zillow\Links.cs" />
+    <Compile Include="Zillow\LocalRealEstateRegion.cs" />
+    <Compile Include="Zillow\LocalRealEstateRegionLinks.cs" />
+    <Compile Include="Zillow\Message.cs" />
+    <Compile Include="Zillow\Property.cs" />
+    <Compile Include="Zillow\Regions.cs" />
+    <Compile Include="Zillow\Results.cs" />
+    <Compile Include="Zillow\SearchResults.cs" />
+    <Compile Include="Zillow\SearchResultsRequest.cs" />
+    <Compile Include="Zillow\SearchResultsResponse.cs" />
+    <Compile Include="Zillow\SimpleProperty.cs" />
+    <Compile Include="Zillow\Zestimate.cs" />
+    <Compile Include="Zillow\ZestimateValuationRange.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
