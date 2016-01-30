@@ -38,6 +38,16 @@ namespace Katonk.RealEstate
             return results.Response.Results;
         }
 
+        public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
+        {
+            string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
+            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
+
+            SearchResults results = await GetResultsAsync<SearchResults>(new Uri(url));
+
+            return results.Response.Results;
+        }
+
         public async Task<DetailedProperty> GetZestimateAsync(uint zpId)
         {
             string urlFormat = "http://www.zillow.com/webservice/GetZestimate.htm?zws-id={0}&zpid={1}";

@@ -26,8 +26,14 @@ namespace Katonk.RealEstate.Driver
 
                 DetailedProperty detailedProperty = await csillow.GetZestimateAsync(property.ZpId);
                 Console.WriteLine(Convert.ToInt32(detailedProperty.Zestimate.Amount.Value).ToString("c"));
-            }
 
+                SimpleProperty[] deepSearchResults = await csillow.GetDeepSearchResultsAsync(property.Address.Street, property.Address.ZipCode);
+
+                foreach (SimpleProperty deepSearchResult in deepSearchResults)
+                {
+                    Console.WriteLine(deepSearchResult.FinishedSqFt);
+                }
+            }
         }
     }
 }
