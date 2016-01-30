@@ -1,4 +1,7 @@
 ﻿using Katonk.RealEstate.Zillow;
+using Katonk.RealEstate.Zillow.SearchResultsQuery;
+using Katonk.RealEstate.Zillow.UpdatedPropertyDetailsQuery;
+using Katonk.RealEstate.Zillow.ZestimateQuery;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +36,7 @@ namespace Katonk.RealEstate
             string urlFormat = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
             string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
 
-            SearchResults results = await GetResultsAsync<SearchResults>(new Uri(url));
+            SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
 
             return results.Response.Properties;
         }
@@ -43,7 +46,7 @@ namespace Katonk.RealEstate
             string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
             string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
 
-            SearchResults results = await GetResultsAsync<SearchResults>(new Uri(url));
+            SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
 
             return results.Response.Properties;
         }

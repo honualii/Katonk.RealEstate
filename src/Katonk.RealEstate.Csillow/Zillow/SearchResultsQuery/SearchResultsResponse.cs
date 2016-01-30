@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Katonk.RealEstate.Zillow
+namespace Katonk.RealEstate.Zillow.SearchResultsQuery
 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]

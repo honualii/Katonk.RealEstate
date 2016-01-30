@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Katonk.RealEstate.Zillow
+namespace Katonk.RealEstate.Zillow.SearchResultsQuery
 {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/SearchResults.xsd")]
     [System.Xml.Serialization.XmlRootAttribute(ElementName = "searchresults", Namespace = "http://www.zillow.com/static/xsd/SearchResults.xsd", IsNullable = false)]
-    public partial class SearchResults : Results
+    public partial class SearchResultsResults : Results
     {
         [System.Xml.Serialization.XmlElementAttribute(ElementName = "request", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SearchResultsRequest Request

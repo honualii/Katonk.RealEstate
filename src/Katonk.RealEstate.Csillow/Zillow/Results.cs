@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Katonk.RealEstate.Zillow.SearchResultsQuery;
+using Katonk.RealEstate.Zillow.UpdatedPropertyDetailsQuery;
+using Katonk.RealEstate.Zillow.ZestimateQuery;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Katonk.RealEstate.Zillow
 {
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SearchResults))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SearchResultsResults))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ZestimateResults))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpdatedPropertyDetailsResults))]
     public partial class Results

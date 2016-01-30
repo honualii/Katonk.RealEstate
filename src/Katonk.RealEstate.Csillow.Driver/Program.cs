@@ -1,4 +1,5 @@
 ﻿using Katonk.RealEstate.Zillow;
+using Katonk.RealEstate.Zillow.UpdatedPropertyDetailsQuery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
