@@ -34,10 +34,10 @@ namespace Katonk.RealEstate
 
         #region Home Valuation API hhttp://www.zillow.com/howto/api/HomeValuationAPIOverview.htm
 
-        public async Task<SimpleProperty[]> GetSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
+        public async Task<SimpleProperty[]> GetSearchResultsAsync(string address, string cityStateZip, bool includeRentZestimate = false)
         {
-            string urlFormat = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
-            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
+            string urlFormat = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}&rentzestimate={3}";
+            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip, includeRentZestimate);
 
             SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
 
@@ -68,20 +68,20 @@ namespace Katonk.RealEstate
 
         #region Property Details API http://www.zillow.com/howto/api/PropertyDetailsAPIOverview.htm
 
-        public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool returnRentZestimate = false)
+        public async Task<SimpleProperty[]> GetDeepSearchResultsAsync(string address, string cityStateZip, bool includeRentZestimate = false)
         {
-            string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}";
-            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip);
+            string urlFormat = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id={0}&address={1}&citystatezip={2}&rentzestimate={3}";
+            string url = String.Format(urlFormat, this.ZwsId, address, cityStateZip, includeRentZestimate);
 
             SearchResultsResults results = await GetResultsAsync<SearchResultsResults>(new Uri(url));
 
             return results.Response.Properties;
         }
 
-        public async Task<Properties> GetDeepCompsAsync(uint zpId, int count, bool returnRentZestimate = false)
+        public async Task<Properties> GetDeepCompsAsync(uint zpId, int count, bool includeRentZestimate = false)
         {
-            string urlFormat = "http://www.zillow.com/webservice/GetDeepComps.htm?zws-id={0}&zpid={1}&count={2}";
-            string url = String.Format(urlFormat, this.ZwsId, zpId, count);
+            string urlFormat = "http://www.zillow.com/webservice/GetDeepComps.htm?zws-id={0}&zpid={1}&count={2}&rentzestimate={3}";
+            string url = String.Format(urlFormat, this.ZwsId, zpId, count, includeRentZestimate);
 
             CompsResults results = await GetResultsAsync<CompsResults>(new Uri(url));
 
