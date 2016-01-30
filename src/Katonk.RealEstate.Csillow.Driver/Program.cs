@@ -23,10 +23,11 @@ namespace Katonk.RealEstate.Driver
             foreach (SimpleProperty property in properties)
             {
                 Console.WriteLine(property.Address.Street);
+
+                DetailedProperty detailedProperty = await csillow.GetZestimateAsync(property.ZpId);
+                Console.WriteLine(Convert.ToInt32(detailedProperty.Zestimate.Amount.Value).ToString("c"));
             }
 
-            DetailedProperty detailedProperty = await csillow.GetZestimateAsync("48749425");
-            Console.WriteLine(detailedProperty.Address.Street);
         }
     }
 }
