@@ -878,39 +878,5 @@
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
-
-	
-	<xsd:element name="searchresults">
-		<xsd:complexType>
-			<xsd:sequence>
-
-				<xsd:element name="request">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="address" type="xsd:string" />
-							<xsd:element name="citystatezip" type="xsd:string" />
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-
-				<xsd:element name="message" type="ZillowTypes:Message" />
-
-				<xsd:element minOccurs="0" name="response">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="results">
-								<xsd:complexType>
-									<xsd:sequence>
-										<xsd:element minOccurs="1" maxOccurs="unbounded" name="result" type="ZillowTypes:SimpleProperty" />
-									</xsd:sequence>
-								</xsd:complexType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-		
+ 
 </xsd:schema>

@@ -50,6 +50,9 @@
     <None Include="Zillow\Xsd\SearchResults.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Zillow\Xsd\Zestimate.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Zillow\Xsd\ZillowTypes.xsd">
       <SubType>Designer</SubType>
     </None>

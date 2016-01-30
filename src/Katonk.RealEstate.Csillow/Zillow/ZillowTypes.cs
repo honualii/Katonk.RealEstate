@@ -17,24 +17,7 @@ namespace Katonk.RealEstate.Zillow
 
     public partial class Results
     {
-
-        private SearchResultsRequest _requestField;
-
         private Message _messageField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "request", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public SearchResultsRequest Request
-        {
-            get
-            {
-                return this._requestField;
-            }
-            set
-            {
-                this._requestField = value;
-            }
-        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(ElementName = "message", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -61,12 +44,65 @@ namespace Katonk.RealEstate.Zillow
     [System.Xml.Serialization.XmlRootAttribute(ElementName = "searchresults", Namespace = "http://www.zillow.com/static/xsd/SearchResults.xsd", IsNullable = false)]
     public partial class SearchResults : Results
     {
+        private SearchResultsRequest _requestField;
 
         private SearchResultsResponse _responseField;
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "request", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public SearchResultsRequest Request
+        {
+            get
+            {
+                return this._requestField;
+            }
+            set
+            {
+                this._requestField = value;
+            }
+        }
+
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(ElementName = "response", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public SearchResultsResponse Response
+        {
+            get
+            {
+                return this._responseField;
+            }
+            set
+            {
+                this._responseField = value;
+            }
+        }
+    }
+
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/Zestimate.xsd")]
+    [System.Xml.Serialization.XmlRootAttribute(ElementName = "zestimate", Namespace = "http://www.zillow.com/static/xsd/Zestimate.xsd", IsNullable = false)]
+    public partial class ZestimateResults : Results
+    {
+        private ZestimateRequest _requestField;
+
+        private DetailedProperty _responseField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "request", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ZestimateRequest Request
+        {
+            get
+            {
+                return this._requestField;
+            }
+            set
+            {
+                this._requestField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "response", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public DetailedProperty DetailedProperty
         {
             get
             {
@@ -117,6 +153,28 @@ namespace Katonk.RealEstate.Zillow
             set
             {
                 this._cityStateZipField = value;
+            }
+        }
+    }
+
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute("request", AnonymousType = true, Namespace = "http://www.zillow.com/static/xsd/Zestimate.xsd")]
+    public partial class ZestimateRequest
+    {
+
+        private string _zpIdField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "zpid", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ZpId
+        {
+            get
+            {
+                return this._zpIdField;
+            }
+            set
+            {
+                this._zpIdField = value;
             }
         }
     }

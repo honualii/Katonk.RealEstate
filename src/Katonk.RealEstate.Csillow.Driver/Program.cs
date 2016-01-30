@@ -24,6 +24,9 @@ namespace Katonk.RealEstate.Driver
             {
                 Console.WriteLine(property.Address.Street);
             }
+
+            DetailedProperty detailedProperty = await csillow.GetZestimateAsync("48749425");
+            Console.WriteLine(detailedProperty.Address.Street);
         }
     }
 }
