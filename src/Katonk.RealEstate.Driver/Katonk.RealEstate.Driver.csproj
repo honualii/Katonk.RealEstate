@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B332EC4-9902-4CE1-B597-8D7D4878FD7F}</ProjectGuid>
+    <ProjectGuid>{D507C425-B40B-403E-A464-F71E711CCDED}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Katonk.RealEstate.Csillow.Driver</RootNamespace>
-    <AssemblyName>Katonk.RealEstate.Csillow.Driver</AssemblyName>
+    <RootNamespace>Katonk.RealEstate.Driver</RootNamespace>
+    <AssemblyName>Katonk.RealEstate.Driver</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Katonk.RealEstate.Csedfin\Katonk.RealEstate.Csedfin.csproj">
+      <Project>{9a216bab-eb4b-4552-bd43-1e07b7e30f53}</Project>
+      <Name>Katonk.RealEstate.Csedfin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Katonk.RealEstate.Csillow\Katonk.RealEstate.Csillow.csproj">
       <Project>{b01ff66f-5eb2-439a-8ecd-7dac9d0a1e9a}</Project>
       <Name>Katonk.RealEstate.Csillow</Name>

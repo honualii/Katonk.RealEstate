@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Katonk.RealEstate.Csillow.Driver")]
+[assembly: AssemblyTitle("Katonk.RealEstate.Driver")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Katonk.RealEstate.Csillow.Driver")]
+[assembly: AssemblyProduct("Katonk.RealEstate.Driver")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8b332ec4-9902-4ce1-b597-8d7d4878fd7f")]
+[assembly: Guid("d507c425-b40b-403e-a464-f71e711ccded")]
 
 // Version information for an assembly consists of the following four values:
 //
