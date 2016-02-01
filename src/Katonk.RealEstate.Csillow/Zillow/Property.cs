@@ -51,7 +51,7 @@ namespace Katonk.RealEstate.Zillow
         }
 
         [System.Xml.Serialization.XmlElementAttribute("taxAssessmentYear")]
-        public DateTime? TaxAssessmentYear
+        public string TaxAssessmentYear
         {
             get;
             set;
@@ -65,7 +65,7 @@ namespace Katonk.RealEstate.Zillow
         }
 
         [System.Xml.Serialization.XmlElementAttribute("yearBuilt")]
-        public DateTime? YearBuilt
+        public string YearBuilt
         {
             get;
             set;
@@ -106,11 +106,20 @@ namespace Katonk.RealEstate.Zillow
             set;
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("lastSoldDate")]
-        public DateTime? LastSoldDate
+        [System.Xml.Serialization.XmlElementAttribute("lastSoldDate", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string LastSoldDateString
         {
             get;
             set;
+        }
+
+        [System.Xml.Serialization.XmlIgnore]
+        public DateTime LastSoldDate
+        {
+            get
+            {
+                return DateTime.Parse(this.LastSoldDateString);
+            }
         }
 
         [System.Xml.Serialization.XmlElementAttribute("lastSoldPrice", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]

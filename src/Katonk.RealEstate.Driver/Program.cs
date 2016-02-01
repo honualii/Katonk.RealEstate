@@ -19,7 +19,7 @@ namespace Katonk.RealEstate.Driver
 
         async Task RunAsync(string zwsId, string redfinRssUrl)
         {
-            //await RunCsillowAsync(zwsId);
+            await RunCsillowAsync(zwsId);
 
             await RunCsedfinAsync(redfinRssUrl);
         }
@@ -27,7 +27,7 @@ namespace Katonk.RealEstate.Driver
         async Task RunCsillowAsync(string zwsId)
         {
             Csillow csillow = new Csillow(zwsId);
-            SimpleProperty[] properties = await csillow.GetSearchResultsAsync("2114 Bigelow Ave", "Seattle, WA");
+            SimpleProperty[] properties = await csillow.GetSearchResultsAsync("	3804 NE 93RD ST", "Seattle, WA");
 
             foreach (SimpleProperty property in properties)
             {
